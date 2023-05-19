@@ -1,0 +1,2 @@
+C:\Users\Print_User\My project (8)\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\Print_User\My project (8)\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

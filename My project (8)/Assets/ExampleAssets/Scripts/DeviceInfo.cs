@@ -1,50 +1,41 @@
-﻿using System;
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System;
+using CsvHelper.Configuration.Attributes;
 
 public class DeviceInfo
 {
-    public DeviceInfo(int _id_device,int _manufactureYear,int _serviceLife,int _serie)
+    public DeviceInfo(int id,int man,int life,int serie)
     {
-        id_device=_id_device;
-        manufactureYear = _manufactureYear;
-        serviceLife = _serviceLife;
-        serie = _serie;
+        this.id_device = id;
+        this.manufactureYear = man;
+        this.serviceLife = life;
+        this.serie = serie;
     }
+    [Name("id_device")]
+    public int? id_device { get; set; }
 
-    public int id_device
-    {
-        get;
-        private set;
-    }
+    [Name("manufactureYear")]
+    public int? manufactureYear { get; set; }
 
-    public int manufactureYear
-    {
-        get;
-        private set;
-    }
+    [Name("serviceLife")]
+    public int? serviceLife { get; set; }
 
-    public int serviceLife
-    {
-        get;
-        private set;
-    }
-    public int serie
-    {
-        get;
-        private set;
-    }
-    public Sprite qr;
-
+    [Name("serie")]
+    public int? serie { get; set; }
     public static String GetDeviceInfo(DeviceInfo deviceInfo)
     {
-        int id = deviceInfo.id_device;
-        int manufacture = deviceInfo.manufactureYear;
-        int serviceLife = deviceInfo.serviceLife;
-        int serie = deviceInfo.serie;
-        string infoText = ("Идентификатор: " + id +"\n" +
-                           "Производство: " +manufacture +"\n" +
-                           "Время работы: " + serviceLife +"\n" +
-                           "Серия: "+ serie);
+        int id = (int)deviceInfo.id_device;
+        int manufacture = (int)deviceInfo.manufactureYear;
+        int serviceLife = (int)deviceInfo.serviceLife;
+        int serie = (int)deviceInfo.serie;
+        string infoText = ("Идентификатор: " + id + "\n" +
+                           "Производство: " + manufacture + "\n" +
+                           "Время работы: " + serviceLife + "\n" +
+                           "Серия: " + serie);
         return infoText;
     }
 }
